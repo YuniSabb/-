@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        Title="Мониторинг" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
+            <Button Content="CPU" Click="Cpu_Click" Margin="5"/>
+            <Button Content="RAM" Click="Ram_Click" Margin="5"/>
+            <!-- В будущем: Disk, Network -->
+        </StackPanel>
+
+        <!-- Панель кнопок -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Content="1 час" Click="OneHour_Click" Margin="5"/>
+            <Button Content="24 часа" Click="TwentyFourHours_Click" Margin="5"/>
+            <Button Content="7 дней" Click="SevenDays_Click" Margin="5"/>
+            <Button Content="Журнал инцидентов" Click="IncidentLog_Click" Margin="5"/>
+        </StackPanel>
+        
+
+
+        <!-- Информация справа -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" DockPanel.Dock="Right">
+            <TextBlock x:Name="DiskFreeText" FontWeight="Bold" Margin="5" Text="Диск: ..." />
+            <TextBlock x:Name="NetworkStatusText" FontWeight="Bold" Margin="5" Text="Сеть: ..." />
+        </StackPanel>
+
+        <!-- График -->
+        <oxy:PlotView x:Name="PlotView" Grid.Row="1"/>
+    </Grid>
+</Window>
